@@ -1,5 +1,15 @@
-import { Container } from "semantic-ui-react";
+import {
+  Container,
+  Grid,
+  Header,
+  Segment,
+  Statistic,
+  Icon,
+  Form,
+  Button,
+} from "semantic-ui-react";
 import "./App.css";
+import ButtonSaveorCancel from "./components/ButtonSaveorCancel";
 import DisplayBalance from "./components/DisplayBalance";
 import DisplayBalances from "./components/DisplayBalances";
 import EntryLine from "./components/EntryLine";

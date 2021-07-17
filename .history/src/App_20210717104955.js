@@ -1,5 +1,15 @@
-import { Container } from "semantic-ui-react";
+import {
+  Container,
+  Grid,
+  Header,
+  Segment,
+  Statistic,
+  Icon,
+  Form,
+  Button,
+} from "semantic-ui-react";
 import "./App.css";
+import ButtonSaveorCancel from "./components/ButtonSaveorCancel";
 import DisplayBalance from "./components/DisplayBalance";
 import DisplayBalances from "./components/DisplayBalances";
 import EntryLine from "./components/EntryLine";
@@ -16,8 +26,8 @@ function App() {
 
       <MainHeader title="History" type="h3" />
 
-      <EntryLine description="income" value="$10,00" />
-      <EntryLine description="expense" value="$100,00" isExpense />
+      <EntryLine description="something" value="$10,00" />
+      <EntryLine description="something else" value="$100,00" isExpense />
 
       <MainHeader title="Add new transaction" type="h3" />
       <NewEntryForm />
