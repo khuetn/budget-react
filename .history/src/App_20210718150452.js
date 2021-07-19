@@ -10,22 +10,6 @@ import NewEntryForm from "./components/NewEntryForm";
 
 function App() {
   const [entries, setEntries] = useState(initialEntries);
-
-  function deleteEntry(id) {
-    const result = entries.filter((entry) => entry.id !== id);
-    setEntries(result);
-  }
-
-  function addEntry(description, value) {
-    const result = entries.concat({
-      id: entries.length + 1,
-      description,
-      value,
-    });
-    console.log("result", result);
-    console.log("entries", entries);
-    setEntries(result);
-  }
   return (
     <Container>
       <MainHeader title="Budget" />
@@ -34,10 +18,10 @@ function App() {
       <DisplayBalances />
 
       <MainHeader title="History" type="h3" />
-      <EntryLines entries={entries} deleteEntry={deleteEntry} />
+      <EntryLines entries={entries} />
 
       <MainHeader title="Add new transaction" type="h3" />
-      <NewEntryForm addEntry={addEntry} />
+      <NewEntryForm />
     </Container>
   );
 }

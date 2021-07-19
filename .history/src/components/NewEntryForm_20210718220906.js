@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Form } from "semantic-ui-react";
 import ButtonSaveorCancel from "./ButtonSaveorCancel";
-function NewEntryForm({ addEntry }) {
+function NewEntryForm() {
   const [description, setDescription] = useState("");
   const [value, setValue] = useState("");
   return (
@@ -25,11 +25,7 @@ function NewEntryForm({ addEntry }) {
           onChange={(event) => setValue(event.target.value)}
         />
       </Form.Group>
-      <ButtonSaveorCancel
-        addEntry={addEntry}
-        description={description}
-        value={value}
-      />
+      <ButtonSaveorCancel />
     </Form>
   );
 }

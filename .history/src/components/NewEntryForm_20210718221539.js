@@ -25,11 +25,7 @@ function NewEntryForm({ addEntry }) {
           onChange={(event) => setValue(event.target.value)}
         />
       </Form.Group>
-      <ButtonSaveorCancel
-        addEntry={addEntry}
-        description={description}
-        value={value}
-      />
+      <ButtonSaveorCancel />
     </Form>
   );
 }

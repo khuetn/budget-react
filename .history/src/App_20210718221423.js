@@ -37,7 +37,7 @@ function App() {
       <EntryLines entries={entries} deleteEntry={deleteEntry} />
 
       <MainHeader title="Add new transaction" type="h3" />
-      <NewEntryForm addEntry={addEntry} />
+      <NewEntryForm />
     </Container>
   );
 }
