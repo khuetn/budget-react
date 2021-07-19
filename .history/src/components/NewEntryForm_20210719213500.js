@@ -31,14 +31,13 @@ function NewEntryForm({ addEntry }) {
           toggle
           label="isExpense"
           checked={isExpense}
-          onChange={() => setIsExpense((oldState) => !oldState)}
+          onChange={(oldState) => !oldState}
         />
       </Segment>
       <ButtonSaveorCancel
         addEntry={addEntry}
         description={description}
         value={value}
-        isExpense={isExpense}
       />
     </Form>
   );

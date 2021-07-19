@@ -16,13 +16,13 @@ function EntryLine({ id, description, value, isExpense = false, deleteEntry }) {
               {value}
             </Grid.Column>
             <Grid.Column width={3}>
-              <Icon name="edit" bordered onClick={() => setIsOpen(true)} />
+              <Icon name="edit" bordered />
               <Icon name="trash" bordered onClick={() => deleteEntry(id)} />
             </Grid.Column>
           </Grid.Row>
         </Grid>
       </Segment>
-      <ModalEdit isOpen={isOpen} setIsOpen={setIsOpen} />
+      <ModalEdit isOpen={isOpen} />
     </Fragment>
   );
 }

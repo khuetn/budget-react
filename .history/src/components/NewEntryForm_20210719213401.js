@@ -27,18 +27,12 @@ function NewEntryForm({ addEntry }) {
         />
       </Form.Group>
       <Segment>
-        <Checkbox
-          toggle
-          label="isExpense"
-          checked={isExpense}
-          onChange={() => setIsExpense((oldState) => !oldState)}
-        />
+        <Checkbox toggle label="isExpense" />
       </Segment>
       <ButtonSaveorCancel
         addEntry={addEntry}
         description={description}
         value={value}
-        isExpense={isExpense}
       />
     </Form>
   );

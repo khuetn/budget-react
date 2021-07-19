@@ -21,7 +21,6 @@ function App() {
       id: entries.length + 1,
       description,
       value,
-      isExpense,
     });
     console.log("result", result);
     console.log("entries", entries);

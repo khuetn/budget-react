@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Checkbox, Form, Segment } from "semantic-ui-react";
+import { Form, Segment } from "semantic-ui-react";
 import ButtonSaveorCancel from "./ButtonSaveorCancel";
 function NewEntryForm({ addEntry }) {
   const [description, setDescription] = useState("");
@@ -27,18 +27,12 @@ function NewEntryForm({ addEntry }) {
         />
       </Form.Group>
       <Segment>
-        <Checkbox
-          toggle
-          label="isExpense"
-          checked={isExpense}
-          onChange={() => setIsExpense((oldState) => !oldState)}
-        />
+        <Checkbox toggle label="isExpense" />
       </Segment>
       <ButtonSaveorCancel
         addEntry={addEntry}
         description={description}
         value={value}
-        isExpense={isExpense}
       />
     </Form>
   );

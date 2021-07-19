@@ -38,7 +38,6 @@ function NewEntryForm({ addEntry }) {
         addEntry={addEntry}
         description={description}
         value={value}
-        isExpense={isExpense}
       />
     </Form>
   );
