@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Container } from "semantic-ui-react";
 import "./App.css";
 import DisplayBalance from "./components/DisplayBalance";
@@ -18,34 +18,9 @@ function App() {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  const [entryId, setEntryId] = useState();
-
-  useEffect(() => {
-    if (!isOpen && entryId) {
-      const index = entries.findIndex((entry) => entry.id === entryId);
-      const newEntries = [...entries];
-      newEntries[index].description = description;
-      newEntries[index].value = value;
-      newEntries[index].isExpense = isExpense;
-      setEntries(newEntries);
-    }
-  }, [isOpen]);
   function deleteEntry(id) {
     const result = entries.filter((entry) => entry.id !== id);
     setEntries(result);
-  }
-
-  function editEntry(id) {
-    console.log(`edit entry with id ${id}`);
-    if (id) {
-      const index = entries.findIndex((entry) => entry.id === id);
-      const entry = entries[index];
-      setEntryId(id);
-      setDescription(entry.description);
-      setValue(entry.value);
-      setIsExpense(entry.isExpense);
-      setIsOpen(true);
-    }
   }
 
   function addEntry(description, value, isExpense) {
@@ -67,11 +42,7 @@ function App() {
       <DisplayBalances />
 
       <MainHeader title="History" type="h3" />
-      <EntryLines
-        entries={entries}
-        deleteEntry={deleteEntry}
-        editEntry={editEntry}
-      />
+      <EntryLines entries={entries} deleteEntry={deleteEntry} />
 
       <MainHeader title="Add new transaction" type="h3" />
       <NewEntryForm
@@ -83,17 +54,7 @@ function App() {
         setValue={setValue}
         setIsExpense={setIsExpense}
       />
-      <ModalEdit
-        isOpen={isOpen}
-        setIsOpen={setIsOpen}
-        addEntry={addEntry}
-        description={description}
-        value={value}
-        isExpense={isExpense}
-        setDescription={setDescription}
-        setValue={setValue}
-        setIsExpense={setIsExpense}
-      />
+      <ModalEdit isOpen={isOpen} setIsOpen={setIsOpen} />
     </Container>
   );
 }

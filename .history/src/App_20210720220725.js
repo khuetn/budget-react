@@ -21,7 +21,7 @@ function App() {
   const [entryId, setEntryId] = useState();
 
   useEffect(() => {
-    if (!isOpen && entryId) {
+    if (!isOpen) {
       const index = entries.findIndex((entry) => entry.id === entryId);
       const newEntries = [...entries];
       newEntries[index].description = description;

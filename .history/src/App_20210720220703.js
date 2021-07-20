@@ -21,13 +21,12 @@ function App() {
   const [entryId, setEntryId] = useState();
 
   useEffect(() => {
-    if (!isOpen && entryId) {
+    if (!isOpen) {
       const index = entries.findIndex((entry) => entry.id === entryId);
       const newEntries = [...entries];
       newEntries[index].description = description;
       newEntries[index].value = value;
       newEntries[index].isExpense = isExpense;
-      setEntries(newEntries);
     }
   }, [isOpen]);
   function deleteEntry(id) {

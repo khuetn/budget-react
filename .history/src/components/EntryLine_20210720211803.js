@@ -22,7 +22,7 @@ function EntryLine({
               {value}
             </Grid.Column>
             <Grid.Column width={3}>
-              <Icon name="edit" bordered onClick={() => editEntry(id)} />
+              <Icon name="edit" bordered onClick={() => setIsOpen(true)} />
               <Icon name="trash" bordered onClick={() => deleteEntry(id)} />
             </Grid.Column>
           </Grid.Row>
