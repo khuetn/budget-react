@@ -20,10 +20,6 @@ function App() {
 
   const [entryId, setEntryId] = useState();
 
-  const [incomeTotal, setIncomeTotal] = useState(0);
-  const [expenseTotal, setExpenseTotal] = useState(0);
-  const [total, setTotal] = useState(0);
-
   useEffect(() => {
     if (!isOpen && entryId) {
       const index = entries.findIndex((entry) => entry.id === entryId);
@@ -45,17 +41,14 @@ function App() {
     let totalExpenses = 0;
     entries.map((entry) => {
       if (entry.isExpense) {
-        return (totalExpenses += Number(entry.value));
+        return (totalExpenses += entry.value);
       }
-      return (totalIncomes += Number(entry.value));
+      return (totalIncomes += entry.value);
     });
-    setTotal(totalIncomes - totalExpenses);
-    setExpenseTotal(totalExpenses);
-    setIncomeTotal(totalIncomes);
     console.log(
       `total Income are ${totalIncomes} and total Expenses are ${totalExpenses}`
     );
-  }, [entries]);
+  }, entries);
 
   function editEntry(id) {
     console.log(`edit entry with id ${id}`);
@@ -91,8 +84,8 @@ function App() {
     <Container>
       <MainHeader title="Budget" />
 
-      <DisplayBalance title="Your Balance" value={total} size="small" />
-      <DisplayBalances incomeTotal={incomeTotal} expenseTotal={expenseTotal} />
+      <DisplayBalance title="Your Balance" value="2,550.53" size="small" />
+      <DisplayBalances />
 
       <MainHeader title="History" type="h3" />
       <EntryLines

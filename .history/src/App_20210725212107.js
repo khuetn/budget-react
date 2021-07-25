@@ -45,9 +45,9 @@ function App() {
     let totalExpenses = 0;
     entries.map((entry) => {
       if (entry.isExpense) {
-        return (totalExpenses += Number(entry.value));
+        return (totalExpenses += entry.value);
       }
-      return (totalIncomes += Number(entry.value));
+      return (totalIncomes += entry.value);
     });
     setTotal(totalIncomes - totalExpenses);
     setExpenseTotal(totalExpenses);
@@ -55,7 +55,7 @@ function App() {
     console.log(
       `total Income are ${totalIncomes} and total Expenses are ${totalExpenses}`
     );
-  }, [entries]);
+  }, entries);
 
   function editEntry(id) {
     console.log(`edit entry with id ${id}`);
@@ -92,7 +92,7 @@ function App() {
       <MainHeader title="Budget" />
 
       <DisplayBalance title="Your Balance" value={total} size="small" />
-      <DisplayBalances incomeTotal={incomeTotal} expenseTotal={expenseTotal} />
+      <DisplayBalances expenseTotal={incomeTotal} incomeTotal={expenseTotal} />
 
       <MainHeader title="History" type="h3" />
       <EntryLines

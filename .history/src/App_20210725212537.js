@@ -55,7 +55,7 @@ function App() {
     console.log(
       `total Income are ${totalIncomes} and total Expenses are ${totalExpenses}`
     );
-  }, [entries]);
+  }, entries);
 
   function editEntry(id) {
     console.log(`edit entry with id ${id}`);

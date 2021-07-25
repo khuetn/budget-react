@@ -47,7 +47,7 @@ function App() {
       if (entry.isExpense) {
         return (totalExpenses += Number(entry.value));
       }
-      return (totalIncomes += Number(entry.value));
+      return (totalIncomes += entry.value);
     });
     setTotal(totalIncomes - totalExpenses);
     setExpenseTotal(totalExpenses);
@@ -55,7 +55,7 @@ function App() {
     console.log(
       `total Income are ${totalIncomes} and total Expenses are ${totalExpenses}`
     );
-  }, [entries]);
+  }, entries);
 
   function editEntry(id) {
     console.log(`edit entry with id ${id}`);

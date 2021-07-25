@@ -20,10 +20,6 @@ function App() {
 
   const [entryId, setEntryId] = useState();
 
-  const [incomeTotal, setIncomeTotal] = useState(0);
-  const [expenseTotal, setExpenseTotal] = useState(0);
-  const [total, setTotal] = useState(0);
-
   useEffect(() => {
     if (!isOpen && entryId) {
       const index = entries.findIndex((entry) => entry.id === entryId);
@@ -40,23 +36,6 @@ function App() {
     setEntries(result);
   }
 
-  useEffect(() => {
-    let totalIncomes = 0;
-    let totalExpenses = 0;
-    entries.map((entry) => {
-      if (entry.isExpense) {
-        return (totalExpenses += Number(entry.value));
-      }
-      return (totalIncomes += Number(entry.value));
-    });
-    setTotal(totalIncomes - totalExpenses);
-    setExpenseTotal(totalExpenses);
-    setIncomeTotal(totalIncomes);
-    console.log(
-      `total Income are ${totalIncomes} and total Expenses are ${totalExpenses}`
-    );
-  }, [entries]);
-
   function editEntry(id) {
     console.log(`edit entry with id ${id}`);
     if (id) {
@@ -70,7 +49,7 @@ function App() {
     }
   }
 
-  function addEntry() {
+  function addEntry(description, value, isExpense) {
     const result = entries.concat({
       id: entries.length + 1,
       description,
@@ -91,8 +70,8 @@ function App() {
     <Container>
       <MainHeader title="Budget" />
 
-      <DisplayBalance title="Your Balance" value={total} size="small" />
-      <DisplayBalances incomeTotal={incomeTotal} expenseTotal={expenseTotal} />
+      <DisplayBalance title="Your Balance" value="2,550.53" size="small" />
+      <DisplayBalances />
 
       <MainHeader title="History" type="h3" />
       <EntryLines
@@ -132,26 +111,26 @@ var initialEntries = [
   {
     id: 1,
     description: "Work income",
-    value: 1000,
+    value: "$1,000,00",
     isExpense: false,
   },
   {
     id: 2,
     description: "Water bill",
-    value: 1000,
+    value: "$1,000,00",
     isExpense: false,
   },
 
   {
     id: 3,
     description: "Rent",
-    value: 300,
+    value: "$300,00",
     isExpense: true,
   },
   {
     id: 4,
     description: "Power bill",
-    value: 50,
+    value: "$50,00",
     isExpense: true,
   },
 ];
